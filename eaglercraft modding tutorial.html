@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eaglercraft Modding Tutorial</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2, h3 {
+            color: #00796b;
+            margin-top: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section:nth-child(odd) {
+            background-color: #e0f7fa;
+        }
+
+        .section p, .section ul {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .section ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        .copy-button {
+            background-color: #ff5722;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .copy-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .copy-button:focus {
+            outline: none;
+        }
+
+        .copy-button:active {
+            background-color: #b71c1c;
+        }
+
+        .alert {
+            background-color: #ffeb3b;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .alert.success {
+            background-color: #81c784;
+        }
+
+        .alert.error {
+            background-color: #e57373;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #00796b;
+            text-decoration: none;
+        }
+
+        code {
+            background-color: #f4f7f9;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 16px;
+            margin: 0 5px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        pre {
+            background-color: #f4f7f9;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            overflow-x: auto;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eaglercraft Modding Tutorial</h1>
+    <p>Welcome to the Eaglercraft modding tutorial! I'm <strong>Bruh_11181514</strong>, and together with <strong>George aka (Not an Orange)</strong>, we'll guide you through creating your own mods for Eaglercraft.</p>
+    
+    <div class="section">
+        <h2>What You’ll Need to Download</h2>
+        <ul>
+            <li>IntelliJ Community (Ultimate is optional but costs money)</li>
+            <li>IntelliJ Minecraft Development Addon</li>
+            <li>Blockbench (if you want to create custom logos or models)</li>
+            <li>Java 21 (As of 11/28/2024)</li>
+            <li>Gradle</li>
+            <li>Git</li>
+            <li>Optional:</li>
+            <ul>
+                <li>WinRAR or 7zip</li>
+                <li>JDGUI</li>
+                <li>Node.js</li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Step 1: Set Up Your Workspace</h2>
+        <p>Create a folder for your project to store the Eaglercraft source code and your mod files. For example, I’ve created a folder named <strong>MyEaglercraftMod</strong>.</p>
+    </div>
+
+    <div class="section">
+        <h2>Step 2: Download and Set Up IntelliJ IDEA</h2>
+        <h3>Download IntelliJ IDEA:</h3>
+        <p>Visit <a href="https://www.jetbrains.com/idea/download/" target="_blank">IntelliJ IDEA Downloads</a> and choose the Community Edition (free) or the Ultimate Edition (optional, paid).</p>
+
+        <h3>Install IntelliJ IDEA:</h3>
+        <p>Run the installer and follow the prompts to download IntelliJ on your computer. Make sure to enable the option to install the Java Development Kit (JDK) if prompted.</p>
+
+        <h3>Open IntelliJ for the First Time:</h3>
+        <p>Launch IntelliJ and let it initialize. Skip signing into a JetBrains account unless you’ve purchased the Ultimate Edition.</p>
+    </div>
+
+    <div class="section">
+        <h2>Step 3: Install the Minecraft Development Plugin</h2>
+        <p>Open the Plugin Settings in IntelliJ:</p>
+        <div>
+            <p>Go to File > Settings > Plugins (Windows) or IntelliJ IDEA > Preferences > Plugins (macOS).</p>
+        </div>
+
+        <p>Search for the Plugin:</p>
+        <div>
+            <p>In the Marketplace tab, type "Minecraft Development" into the search bar.</p>
+        </div>
+
+        <p>Install the Plugin:</p>
+        <div>
+            <p>Click the Install button next to the Minecraft Development plugin.</p>
+        </div>
+
+        <p>Restart IntelliJ:</p>
+        <div>
+            <p>Once installed, restart IntelliJ to activate the plugin.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Step 4: Clone the Eaglercraft Repository</h2>
+        <h3>Install Git:</h3>
+        <p>Download Git from <a href="https://git-scm.com/downloads" target="_blank">Git Downloads</a> and follow the installation prompts.</p>
+
+        <h3>Open Command Prompt (or Terminal):</h3>
+        <div>
+            <p>Navigate to the folder you created earlier (MyEaglercraftMod or your chosen name).</p>
+        </div>
+
+        <h3>Clone the Repository:</h3>
+        <div>
+            <p>Run the following command:</p>
+            <pre><code>git clone https://github.com/Eaglercraft-Archive/EaglercraftX-1.8-workspace</code></pre>
+        </div>
+
+        <h3>Verify the Files:</h3>
+        <p>After the command completes, your folder should contain the Eaglercraft source code files.</p>
+    </div>
+
+    <div class="section">
+        <h2>Step 5: Import the Project into IntelliJ</h2>
+        <h3>Open IntelliJ:</h3>
+        <div>
+            <p>From the IntelliJ Welcome Screen, click Open.</p>
+        </div>
+
+        <h3>Select the Folder:</h3>
+        <div>
+            <p>Select your project folder (e.g., MyEaglercraftMod) and select it.</p>
+        </div>
+
+        <h3>Wait for IntelliJ to Index the Project:</h3>
+        <div>
+            <p>IntelliJ will analyze the files and set up the project. This might take a few minutes.</p>
+        </div>
+
+        <h3>Set the JDK Version:</h3>
+        <div>
+            <p>Go to File > Project Structure > SDKs. Add the correct JDK version (Java 8, 17, 21, or another version you’ve installed).</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Step 6: Gradle Setup</h2>
+        <h3>Generate Gradle Files:</h3>
+        <p>Click the “Gradle” tab on the right side of the screen and click the refresh icon.</p>
+
+        <h3>Build the Project:</h3>
+        <p>Once the Gradle files are synchronized, you can click on the green arrow to run the project.</p>
+    </div>
+
+    <div class="section">
+        <h2>Step 7: Adding a Custom Item</h2>
+        <h3>Create the Model for the Item</h3>
+        <p>Navigate to <code>\desktopRuntime\resources\assets\minecraft\models\item</code>.</p>
+        <p>Add a new JSON file named <code>{item_name}.json</code> (e.g., <code>netherite_sword.json</code>). Inside this JSON file, define how your item should be rendered. For example:</p>
+        <pre><code>{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minecraft:item/{item_name}"
+  }
+}</code></pre>
+
+        <p>Replace <code>{item_name}</code> with your actual item name. This tells Minecraft how to display your item in the inventory.</p>
+
+        <h3>Texture Preparation</h3>
+        <p>Make sure you have a texture file for your item in the <code>\desktopRuntime\resources\assets\minecraft\textures\items</code> folder, and that it matches the name you used in the JSON file (e.g., <code>netherite_sword.png</code>).</p>
+
+        <h3>Register the Item in Code</h3>
+        <p>Navigate to <code>src/game/java/net/minecraft/item/Item.java</code>. Find the following line:</p>
+        <pre><code>registerItem(431, "dark_oak_door", new ItemDoor(Blocks.dark_oak_door).setUnlocalizedName("doorDarkOak"));</code></pre>
+
+        <p>After this line, add your custom item registration:</p>
+        <pre><code>registerItem(432, "custom_item", new Item().setUnlocalizedName("custom_item").setCreativeTab(CreativeTabs.tabCombat));</code></pre>
+
+        <h3>Render the Item</h3>
+        <p>Navigate to <code>src/game/java/net/minecraft/client/renderer/entity/RenderItem.java</code>. Find the line:</p>
+        <pre><code>this.registerBlock(Blocks.dragon_egg, "dragon_egg");</code></pre>
+
+        <p>After it, add:</p>
+        <pre><code>this.registerItem(Items.custom_item, "custom_item");</code></pre>
+    </div>
+    <div class="section">
+    <h2>Step 8: Adding a Custom Block</h2>
+    <h3>Create the Model for the Block</h3>
+    <h3>Texture Preperation</h3> 
+    <h3>Register the Block in Code</h3>
+    <h3>Render the Block</h3>
+    </div>
+    <div class="section">
+    <div>
+        <h2>Step 9: Coming Soon</h2>
+
+    </div>
+
+    <footer>
+        <p>Created by Bruh_11181514 & George (Not an Orange). All rights reserved.</p>
+    </footer>
+</body>
+</html>
